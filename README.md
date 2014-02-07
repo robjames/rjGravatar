@@ -3,6 +3,7 @@ rjGravatar
 
 AngularJs module to show a Gravatar image from an email address
 
+FYI: Also loads CryptoJS MD5 script.
 
 ##Demo
 
