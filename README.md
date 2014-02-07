@@ -12,6 +12,6 @@ AngularJs module to show a Gravatar image from an email address
 
 **See example html in lib folder**
 
-But essentially, anything from `<img rj-gravatar="rob@inmeres.com" />` to this `<img rj-gravatar="rob@inmeres.com" size="512" default="mm" force="y" rating="pg" />` and anything in between.
+But essentially, anything from `<img rj-gravatar="m@mullenweg.com" />` to this `<img rj-gravatar="m@mullenweg.com" size="512" default="mm" force="y" rating="pg" />` and anything in between.
 
-Usually you would want `<img rj-gravatar="rob@inmeres.com" size="100" default="mm" />` or similar.
+Usually you would want `<img rj-gravatar="m@mullenweg.com" size="100" default="mm" />` or similar.
