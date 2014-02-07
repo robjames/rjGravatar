@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="MyApp" >
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<title>rjGravatar</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+	
+	<script src="rjGravatar.js" type="text/javascript"></script>
+	<script>
+		angular.module('MyApp', ['rjGravatar'])
+	</script>
+
+</head>
+<body>
+	<ol>
+		 <li><img rj-gravatar="rob@inmeres.com"  />
+	</li><li><img rj-gravatar="rob@inmeres.com" size=""  />
+	</li><li><img rj-gravatar="rob@inmeres.com" default="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" force="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="5" default="" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="50" default="" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="512" default="" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.comghghgh" size="" default="mm" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="" default="mm" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="" default="mm" force="y" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com   " size="" default="" force="" rating="" />
+	</li><li>No email - Do nothing: <img rj-gravatar="" size="" default="" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="" default="" force="" rating="" />
+	</li><li><img rj-gravatar="rob@inmeres.com" size="" default="" force="" rating="" />
+	</li>
+	</ol>
+
+</body></html>
