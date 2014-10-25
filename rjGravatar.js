@@ -1,4 +1,4 @@
-/* global angular *//* https://github.com/robjames/rjGravatar */
+/* global angular,CryptoJS *//* https://github.com/robjames/rjGravatar */
 	angular.module('rjGravatar', [])
 	.run(function(){
         var md5 = document.createElement('script'); md5.type = 'text/javascript'; md5.async = true;
@@ -15,24 +15,29 @@
 					return (!val) ? '' : '&' + str + '=' + val;
 				}
 				
-				var email = attrs['rjGravatar'];
-				if(!email) return;
+				var getGrav = function(email){
+					var email = attrs.rjGravatar;
+					if(!email) return;
+	
+					var size = getAttr('s','size');
+					var defaultImage = encodeURI(getAttr('d','default'));
+					var forceDefaultImage = getAttr('f','force');
+					var rating = getAttr('r','rating');
+	
+					var options = size+defaultImage+forceDefaultImage+rating;
+					options = options.replace('&', '?');
+					(function waiter(){
+						if(!window.CryptoJS){ return setTimeout(waiter, 37); }
+						var hash = CryptoJS.MD5(email);
+						var src = 'https://secure.gravatar.com/avatar/'+hash.toString()+'/'+options;
+						element.attr('src', src);
+					}());
+				};
 				
-				var size = getAttr('s','size');
-				var defaultImage = encodeURI(getAttr('d','default'));
-				var forceDefaultImage = getAttr('f','force');
-				var rating = getAttr('r','rating');			
+				attrs.$observe('rjGravatar', function(newVal){
+					getGrav(newVal);
+				});
 				
-				var options = size+defaultImage+forceDefaultImage+rating;
-				options = options.replace('&', '?');
-				
-				(function waiter(){
-					if(!window.CryptoJS){ return setTimeout(waiter, 37); }
-
-					var hash = CryptoJS.MD5(email);
-					var src = 'https://secure.gravatar.com/avatar/'+hash.toString()+'/'+options;
-					element.attr('src', src);
-				}());				
 			}
-		}
+		};
 	}]);
